@@ -13,7 +13,8 @@
       "number": "02",
       "name": "Pork Salad with a really long name",
       "price": 10.99,
-      "description": {
+      "description": "Pork Salad with a really long name and this is it's description!",
+      "info": {
         "main": "A mixed salad with pork.",
         "lists": [
           {
