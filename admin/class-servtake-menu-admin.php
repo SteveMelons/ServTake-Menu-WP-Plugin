@@ -158,7 +158,7 @@ class Servtake_Menu_Admin
       // ID used to identify this section and with which to register options
       'servtake_menu_general_section',
       // Title to be displayed on the administration page
-      '',
+      'General',
       // Callback used to render the description of the section
       array($this, 'servtake_menu_display_general_account'),
       // Page on which to add this section of options
@@ -167,18 +167,18 @@ class Servtake_Menu_Admin
 
     unset($args);
     $args = array(
-      'type'      => 'input',
+      'type'      => 'textarea',
       'subtype'   => 'text',
-      'id'    => 'servtake_menu_whatsapp_phone_number',
-      'name'      => 'servtake_menu_whatsapp_phone_number',
+      'id'    => 'servtake_menu_menu_data',
+      'name'      => 'servtake_menu_menu_data',
       'required' => 'true',
       'get_options_list' => '',
       'value_type' => 'normal',
       'wp_data' => 'option'
     );
     add_settings_field(
-      'servtake_menu_whatsapp_phone_number',
-      'Whatsapp Phone Number',
+      'servtake_menu_menu_data',
+      'Menu Data',
       array($this, 'servtake_menu_render_settings_field'),
       'servtake_menu_general_settings',
       'servtake_menu_general_section',
@@ -187,13 +187,13 @@ class Servtake_Menu_Admin
 
     register_setting(
       'servtake_menu_general_settings',
-      'servtake_menu_example_setting'
+      'servtake_menu_menu_data'
     );
   }
 
   public function servtake_menu_display_general_account()
   {
-    echo '<p>These settings apply to all Servtake Menu functionality.</p>';
+    echo '<p>These are some general settings.</p>';
   }
 
   public function servtake_menu_render_settings_field($args)
@@ -236,6 +236,15 @@ class Servtake_Menu_Admin
           $checked = ($value) ? 'checked' : '';
           echo '<input type="' . $args['subtype'] . '" id="' . $args['id'] . '" "' . $args['required'] . '" name="' . $args['name'] . '" size="40" value="1" ' . $checked . ' />';
         }
+        break;
+      case 'textarea':
+        $value = ($args['value_type'] == 'serialized') ? serialize($wp_data_value) : $wp_data_value;
+        $prependStart = (isset($args['prepend_value'])) ? '<div class="input-prepend"> <span class="add-on">' . $args['prepend_value'] . '</span>' : '';
+        $prependEnd = (isset($args['prepend_value'])) ? '</div>' : '';
+
+        echo $prependStart . '<textarea id="' . $args['id'] . '" required="' . $args['required'] . '" name="' . $args['name'] . '" cols="100" rows="20" >' . esc_attr($value) . '</textarea>' . $prependEnd;
+
+        /*<textarea required="required" '.$disabled.' type="number" step="any" id="'.$this->plugin_name.'_cost2" name="'.$this->plugin_name.'_cost2" value="' . esc_attr( $cost ) . '" size="25" ></textarea><textarea type="hidden" id="'.$this->plugin_name.'_cost" step="any" name="'.$this->plugin_name.'_cost" value="' . esc_attr( $cost ) . '" ></textarea>*/
         break;
       default:
         # code...

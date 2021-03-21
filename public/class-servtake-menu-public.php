@@ -80,7 +80,7 @@ class Servtake_Menu_Public
 
     wp_register_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
     wp_enqueue_style('font-awesome');
-    wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/servtake-menu-public.css', array(), $this->version, 'all');
+    // wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/servtake-menu-public.css', array(), $this->version, 'all');
   }
 
   /**
@@ -116,10 +116,11 @@ class Servtake_Menu_Public
     // load js and css files
     $pluginDir = plugin_dir_url(__FILE__);
 
-    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/servtake-menu-public.js', array('jquery'), $this->version, false);
+    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/servtake-menu.js', array('jquery'), $this->version, false);
 
     // pass variables to javascript
-    $content = file_get_contents($pluginDir . 'menu.json');
+    // $content = file_get_contents($pluginDir . 'menu.json');
+    $content = get_option('servtake_menu_menu_data');
 
     wp_localize_script(
       $this->plugin_name,
@@ -127,7 +128,7 @@ class Servtake_Menu_Public
       array($content)
     );
 
-    $htmlString = '<div id="menu-container"></div>';
+    $htmlString = '<div id="servtake-container"></div>';
     return $htmlString;
   } // end add_menu_container
 }

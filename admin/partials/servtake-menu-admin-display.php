@@ -14,3 +14,8 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<div class="wrap">
+  <div id="icon-themes" class="icon32"></div>
+  <h2>Servtake Menu</h2>
+  <p>This is the official ServTake Menu WordPress plugin.</p>
+</div>
