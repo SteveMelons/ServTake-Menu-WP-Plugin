@@ -69,5 +69,16 @@ function run_servtake_menu()
 
   $plugin = new Servtake_Menu();
   $plugin->run();
+
+  // -------- plugin-update-checker
+  require 'plugin-update-checker/plugin-update-checker.php';
+  $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/SteveMelons/servtake_menu_wp_plugin/',
+    __FILE__,
+    'servtake-menu'
+  );
+
+  //Optional: Set the branch that contains the stable release.
+  // $myUpdateChecker->setBranch('stable-branch-name');
 }
 run_servtake_menu();
