@@ -193,7 +193,7 @@ class Servtake_Menu_Admin
 
   public function servtake_menu_display_general_account()
   {
-    echo '<p>These are some general settings.</p>';
+    echo '<p>Here you can find some general settings.</p>';
   }
 
   public function servtake_menu_render_settings_field($args)

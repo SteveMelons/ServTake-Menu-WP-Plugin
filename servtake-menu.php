@@ -24,7 +24,7 @@ if (!defined('WPINC')) {
 /**
  * Currently plugin version.
  */
-define('SERVTAKE_MENU_VERSION', '1.3');
+define('SERVTAKE_MENU_VERSION', '1.3.1');
 
 /**
  * The code that runs during plugin activation.
