@@ -9,7 +9,7 @@
  * Plugin Name:       Servtake Menu
  * Plugin URI:        https://techslide.de/
  * Description:       Servtake Menu is an online menu system to allow the customer to order using WhatsApp. Powered by ServTake.
- * Version:           1.3.2
+ * Version:           1.3.3
  * Author:            Oliver Fabian Fischer
  * Author URI:        https://techslide.de/
  * Text Domain:       servtake-menu
@@ -24,7 +24,7 @@ if (!defined('WPINC')) {
 /**
  * Currently plugin version.
  */
-define('SERVTAKE_MENU_VERSION', '1.3.2');
+define('SERVTAKE_MENU_VERSION', '1.3.3');
 
 /**
  * The code that runs during plugin activation.
